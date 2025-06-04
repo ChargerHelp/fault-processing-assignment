@@ -1,9 +1,18 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# Create test customers with different SLAs
+customer_107 = Customer.create!(name: "Fast Response Corp", sla_hours: 2)
+customer_261 = Customer.create!(name: "Standard Service LLC", sla_hours: 4)
+
+# Create locations
+location_1 = Location.create!(name: "Downtown Station", customer: customer_107)
+location_2 = Location.create!(name: "Mall Charging Hub", customer: customer_261)
+
+# Create assets
+asset_12920 = LocationAsset.create!(name: "Station A", location: location_1, customer: customer_107)
+asset_56828 = LocationAsset.create!(name: "Station B", location: location_2, customer: customer_261)
+
+puts "Created customers:"
+puts "- #{customer_107.name} (ID: #{customer_107.id}, SLA: #{customer_107.sla_hours}h)"
+puts "- #{customer_261.name} (ID: #{customer_261.id}, SLA: #{customer_261.sla_hours}h)"
+puts "Created assets:"
+puts "- #{asset_12920.name} (ID: #{asset_12920.id}) at #{location_1.name}"
+puts "- #{asset_56828.name} (ID: #{asset_56828.id}) at #{location_2.name}"

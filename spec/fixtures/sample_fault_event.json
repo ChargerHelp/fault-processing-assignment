@@ -1,0 +1,13 @@
+{
+  "id_from_source": 19824588,
+  "customer_id": 1,
+  "location_asset_id": 1,
+  "connector_id": 2,
+  "fault_time": "2025-06-04T14:53:13.000Z",
+  "resolved_at": null,
+  "status": "NEEDS SERVICE",
+  "downtime_type": "NEEDS SERVICE",
+  "fault_type": "Ground Fault Circuit Interrupter",
+  "source": "chargepoint",
+  "is_alarm": true
+}
